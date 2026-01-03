@@ -80,16 +80,16 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eco_tourism',     # database name
-        'USER': 'root',            # mysql username
-        'PASSWORD': 'WJ28@krhps',       # mysql password
-        'HOST': 'localhost',       # or IP address
-        'PORT': '3306',            # default MySQL port
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'eco_tourism',     # database name
+#        'USER': 'root',            # mysql username
+#        'PASSWORD': 'WJ28@krhps',       # mysql password
+#        'HOST': 'localhost',       # or IP address
+#        'PORT': '3306',            # default MySQL port
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -131,3 +131,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
