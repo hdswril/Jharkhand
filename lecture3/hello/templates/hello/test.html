@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Famous Local Cuisine of Jharkhand</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff8f0;
+            color: #4d2c00;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-box input {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #e0b97b;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .dish {
+            background-color: #fff3e0;
+            border: 1px solid #e0b97b;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .dish:hover {
+            transform: scale(1.03);
+        }
+        .dish img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .dish h2 {
+            margin-top: 10px;
+            color: #d35400;
+        }
+        .dish p {
+            margin: 5px 0;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #e67e22;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Famous Local Cuisine of Jharkhand</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for a dish..." onkeyup="filterDishes()">
+        </div>
+
+        <div class="dish-grid" id="dishGrid">
+
+            <div class="dish">
+                <img src="thekua.jpg" alt="Thekua">
+                <h2>Thekua</h2>
+                <p><strong>Discription:</strong>A sweet and crispy snack made from wheat flour, jaggery, and coconut, Thekua is especially popular during the Chhath Puja festival. </p>
+                <p><strong>Estimated Cost:</strong> ₹50 - ₹100 per packet</p>
+            </div>
+
+            <div class="dish">
+                <img src="litti choka.webp" alt="Litti Chokha">
+                <h2>Litti-Chokha</h2>
+                <p><strong>Discription:</strong>  While also a signature of Bihar, this dish is very popular in Jharkhand. Litti are baked or roasted dough balls stuffed with a spiced mixture of roasted gram flour (sattu). They are typically served with "chokha," a mashed mix of roasted eggplant, tomatoes, and potatoes.</p>
+                <p><strong>Estimated Cost:</strong> ₹70 - ₹150 per serving</p>
+            </div>
+
+            <div class="dish">
+                <img src="duska.webp" alt="Dhuska">
+                <h2>Dhuska</h2>
+                <p><strong>Discription:</strong>This is one of the most popular breakfast items in Jharkhand. It's a deep-fried bread made from a batter of rice and lentils (chana dal and urad dal), often served with a spicy potato curry or a chickpea stew called "ghugni." </p>
+                <p><strong>Estimated Cost:</strong> ₹40 - ₹80 per serving</p>
+            </div>
+
+            <div class="dish">
+                <img src="Chilkaroti-.jpg" alt="Chilka Roti">
+                <h2>Chilka Roti</h2>
+                <p><strong>Discription:</strong> This is a thin, pancake-like flatbread made from a batter of rice flour and lentils. It's often served with a vegetable curry, mutton curry, or a simple chutney.</p>
+                <p><strong>Estimated Cost:</strong> ₹30 - ₹60 per serving</p>
+            </div>
+
+            <div class="dish">
+                <img src="handia.webp" alt="Handia">
+                <h2>Handia (Rice Beer)</h2>
+                <p><strong>Discription:</strong> A traditional rice beer brewed by local communities. It's made by fermenting a mix of boiled rice and a special "ranu" tablet made from various herbs. It has a low alcohol content.</p>
+                <p><strong>Estimated Cost:</strong> ₹20 - ₹50 per glass</p>
+            </div>
+            <div class="dish">
+                <img src="bamboo.webp" alt="Bamboo Shoot curry">
+                <h2>Bamboo Shoot Curry</h2>
+                <p><strong>Discription:</strong>A tribal delicacy, this curry is made from tender bamboo shoots cooked with mustard seeds, garlic, and green chilies.</p>
+                <p><strong>Estimated Cost:</strong> ₹50 - ₹100 per Kg</p>
+            </div>
+            <div class="dish">
+                <img src="rugra.webp" alt="Rugra Mushroom">
+                <h2>Rugra Mushroom</h2>
+                <p><strong>Discription:</strong>This is a type of edible mushroom that grows in Jharkhand, especially during the monsoon season. It's considered a delicacy and is used to make a flavorful curry.</p>
+                <p><strong>Estimated Cost:</strong> ₹500 - ₹800 per Kg</p>
+            </div>
+            <div class="dish">
+                <img src="pitha.jpg" alt="Pitha">
+                <h2>Pitha</h2>
+                <p><strong>Discription:</strong>These are dumplings made from rice flour, with both sweet and savory versions. The sweet ones are often filled with jaggery and coconut, while savory ones might contain vegetables or lentils. They can be steamed or pan-fried.</p>
+                <p><strong>Estimated Cost:</strong> ₹10 - ₹20 per piece</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function filterDishes() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const dishes = document.getElementsByClassName('dish');
+            
+            for (let i = 0; i < dishes.length; i++) {
+                const title = dishes[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+                if (title.indexOf(filter) > -1) {
+                    dishes[i].style.display = "";
+                } else {
+                    dishes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

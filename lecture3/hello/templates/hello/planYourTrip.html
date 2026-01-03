@@ -1,0 +1,432 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism - The Land of Forests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'hello/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/css/culture.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/css/planYourTrip.css' %}">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/822c66ac-2f0a-4ca1-a990-2b48e2477c89.png" alt="Jharkhand Tourism Official Logo featuring tribal art patterns and state emblem" class="h-12 w-12 mr-3">
+                    <span class="text-2xl font-bold text-green-800">Jharkhand Tourism</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="{% url 'home' %}" class="text-green-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="{% url 'history' %}" class="text-green-800 hover:text-green-600 font-medium">History</a>
+                    <a href="{% url 'culture' %}" class="text-green-800 hover:text-green-600 font-medium">Culture</a>
+                    <a href="{% url 'adventure' %}" class="text-green-800 hover:text-green-600 font-medium">Adventure</a>
+                    <a href="{% url 'festivals' %}" class="text-green-800 hover:text-green-600 font-medium">Festivals</a>
+                    <a href="{% url 'localCuisine' %}" class="text-green-800 hover:text-green-600 font-medium">Local Cuisine</a>
+                    <a href="{% url 'map' %}" class="text-green-800 hover:text-green-600 font-medium">Map</a>
+                    <a href="{% url 'contact' %}" class="text-green-800 hover:text-green-600 font-medium">Contact</a>
+                    <a href="{% url 'login' %}" class="text-green-800 hover:text-green-600 font-medium">Login</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-green-800">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu ................. i should do it same as the actual nav bar-->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4">
+            <a href="#home" class="block py-2 text-green-800">Home</a>
+            <a href="#destinations" class="block py-2 text-green-800">Destinations</a>
+            <a href="#culture" class="block py-2 text-green-800">Culture</a>
+            <a href="#adventure" class="block py-2 text-green-800">Adventure</a>
+            <a href="#festivals" class="block py-2 text-green-800">Festivals</a>
+            <a href="#contact" class="block py-2 text-green-800">Contact</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 text-center">
+        <h1>Discover Jharkhand: Your Next Great Journey</h1>
+        <p>From cultural villages to natural wonders - plan your perfect Jharkhand getaway</p>
+    </header>
+
+    <div class="floating-elements">
+        <div class="floating-icon">✈️</div>
+        <div class="floating-icon">🏨</div>
+        <div class="floating-icon">🌴</div>
+        <div class="floating-icon">🏝️</div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <nav class="nav-tabs">
+                <button class="nav-tab" data-tab="hotels">
+                    🏨 Hotels
+                </button>
+                <button class="nav-tab" data-tab="homes">
+                    🏠 Homes & Apts
+                </button>
+                <button class="nav-tab active" data-tab="flight-hotel">
+                    ✈️ Flight + Hotel
+                    <span class="badge">Bundle & Save</span>
+                </button>
+                <button class="nav-tab" data-tab="flights">
+                    ✈️ Flights
+                    <span class="badge">New</span>
+                </button>
+                <button class="nav-tab" data-tab="activities">
+                    🎯 Activities
+                </button>
+                <button class="nav-tab" data-tab="transfer">
+                    🚗 Airport transfer
+                </button>
+            </nav>
+        </header>
+
+        <main class="booking-form">
+            <div class="trip-type">
+                <label class="trip-option">
+                    <input type="radio" name="trip" value="round-trip" checked>
+                    <span>Round-trip</span>
+                </label>
+                <label class="trip-option">
+                    <input type="radio" name="trip" value="one-way">
+                    <span>One-way</span>
+                </label>
+                <label class="trip-option">
+                    <input type="radio" name="trip" value="multi-city">
+                    <span>Multi-city</span>
+                </label>
+                <label class="trip-option">
+                    <input type="radio" name="class" value="economy" checked>
+                    <span>Economy</span>
+                </label>
+                <label class="trip-option">
+                    <input type="radio" name="class" value="business">
+                    <span>Business</span>
+                </label>
+            </div>
+
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="from">Flying from</label>
+                        <input type="text" id="from" class="form-control" placeholder="City or airport name" required>
+                        <span class="input-icon">🛫</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="to">Flying to</label>
+                        <input type="text" id="to" class="form-control" placeholder="City or airport name" required>
+                        <span class="input-icon">🛬</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departure">Departure</label>
+                        <input type="date" id="departure" class="form-control" required>
+                        <span class="input-icon">📅</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="return">Return</label>
+                        <input type="date" id="return" class="form-control" required>
+                        <span class="input-icon">📅</span>
+                    </div>
+                </div>
+
+                <div class="passenger-room-row">
+                    <div class="form-group">
+                        <label for="passengers">Passengers</label>
+                        <select id="passengers" class="form-control">
+                            <option value="1">1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5">5+ Passengers</option>
+                        </select>
+                        <span class="input-icon">👥</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="rooms">Rooms</label>
+                        <select id="rooms" class="form-control">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4+ Rooms</option>
+                        </select>
+                        <span class="input-icon">🏠</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="class-select">Class</label>
+                        <select id="class-select" class="form-control">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium Economy</option>
+                            <option value="business">Business</option>
+                            <option value="first">First Class</option>
+                        </select>
+                        <span class="input-icon">💺</span>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="flexible-dates">
+                    <label for="flexible-dates">Search for hotel in different cities or dates</label>
+                </div>
+
+                <button type="submit" class="search-button">
+                    <span class="button-text">Search Flight + Hotel</span>
+                </button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                🎉 Searching for the best deals... This might take a moment!
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Set default dates
+        const today = new Date();
+        const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+        const twoWeeksLater = new Date(today.getTime() + 14 * 24 * 60 * 60 * 1000);
+        
+        document.getElementById('departure').value = nextWeek.toISOString().split('T')[0];
+        document.getElementById('return').value = twoWeeksLater.toISOString().split('T')[0];
+
+        // Tab switching functionality
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update form based on selected tab
+                const tabType = this.dataset.tab;
+                const searchButton = document.querySelector('.search-button .button-text');
+                
+                switch(tabType) {
+                    case 'hotels':
+                        searchButton.textContent = 'Search Hotels';
+                        break;
+                    case 'homes':
+                        searchButton.textContent = 'Search Homes & Apartments';
+                        break;
+                    case 'flight-hotel':
+                        searchButton.textContent = 'Search Flight + Hotel';
+                        break;
+                    case 'flights':
+                        searchButton.textContent = 'Search Flights';
+                        break;
+                    case 'activities':
+                        searchButton.textContent = 'Search Activities';
+                        break;
+                    case 'transfer':
+                        searchButton.textContent = 'Search Airport Transfer';
+                        break;
+                }
+            });
+        });
+
+        // Trip type handling
+        document.querySelectorAll('input[name="trip"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const returnField = document.getElementById('return');
+                const returnGroup = returnField.closest('.form-group');
+                
+                if (this.value === 'one-way') {
+                    returnGroup.style.opacity = '0.5';
+                    returnField.disabled = true;
+                    returnField.required = false;
+                } else {
+                    returnGroup.style.opacity = '1';
+                    returnField.disabled = false;
+                    returnField.required = true;
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const searchButton = document.querySelector('.search-button');
+            const buttonText = searchButton.querySelector('.button-text');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Show loading state
+            buttonText.innerHTML = '<div class="loading"></div> Searching...';
+            searchButton.style.pointerEvents = 'none';
+            
+            // Simulate search process
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                buttonText.textContent = 'Search Flight + Hotel';
+                searchButton.style.pointerEvents = 'auto';
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // Input focus effects
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+
+        // Airport/City suggestions (mock data)
+        const cities = [
+            'New York (NYC)', 'Los Angeles (LAX)', 'London (LHR)', 'Paris (CDG)',
+            'Tokyo (NRT)', 'Dubai (DXB)', 'Singapore (SIN)', 'Mumbai (BOM)',
+            'Delhi (DEL)', 'Kolkata (CCU)', 'Chennai (MAA)', 'Bangalore (BLR)',
+            'Sydney (SYD)', 'Melbourne (MEL)', 'Bangkok (BKK)', 'Hong Kong (HKG)'
+        ];
+
+        function addAutocomplete(inputId) {
+            const input = document.getElementById(inputId);
+            input.addEventListener('input', function() {
+                // Simple autocomplete simulation
+                const value = this.value.toLowerCase();
+                if (value.length > 2) {
+                    const matches = cities.filter(city => 
+                        city.toLowerCase().includes(value)
+                    ).slice(0, 5);
+                    
+                    // You could add a dropdown here for suggestions
+                    console.log('Suggestions for', value, ':', matches);
+                }
+            });
+        }
+
+        addAutocomplete('from');
+        addAutocomplete('to');
+    </script>
+
+    <!-- Contact & Booking -->
+    <section id="contact" class="py-20 bg-green-800 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Plan Your Visit</h2>
+                <p class="text-green-200">Get in touch for travel information and bookings</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-4 text-green-300"></i>
+                            <span>Jharkhand Tourism Development Corporation, Ranchi</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-green-300"></i>
+                            <span>+91-651-2446-641</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-4 text-green-300"></i>
+                            <span>info@jharkhandtourism.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe mr-4 text-green-300"></i>
+                            <span>www.jharkhandtourism.gov.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Quick Inquiry</h3>
+                    <form class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <input type="tel" name="phone" placeholder="Your Phone" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <textarea name="message" placeholder="Your Message" rows="4" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required></textarea>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded font-semibold transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-green-200 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Jharkhand Tourism</h4>
+                    <p>Discover the untouched beauty and rich cultural heritage of India's mineral heartland.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#destinations" class="hover:text-white transition duration-300">Destinations</a></li>
+                        <li><a href="#culture" class="hover:text-white transition duration-300">Culture</a></li>
+                        <li><a href="#adventure" class="hover:text-white transition duration-300">Adventure</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300">Travel Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Maps</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Weather</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Transport</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Newsletter</h4>
+                    <p class="mb-4">Subscribe for updates and offers</p>
+                    <form class="flex" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" name="newsletter_email" placeholder="Your email" class="px-4 py-2 bg-green-800 border border-green-700 rounded-l focus:outline-none focus:border-green-400 placeholder-green-300 flex-1" required>
+                        <button type="submit" class="bg-green-600 px-4 py-2 rounded-r hover:bg-green-500 transition duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-800 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Jharkhand Tourism Development Corporation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top bg-green-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-green-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Load your JS -->
+    <script src="{% static 'hello/js/main.js' %}"></script>
+</body>
+</html>

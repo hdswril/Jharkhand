@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jharkhand Tourism - The Land of Forests</title>
+  <link rel="stylesheet" href="{% static 'hello/css/login.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to <span class="highlight">Jharkhand Tourism</span></h1>
+    <p class="subtitle">
+      Sign in to access your Account
+    </p>
+
+    <div class="buttons">
+        <button class="btn primary" id="signInBtn">Sign In</button>
+      <button class="btn secondary" id="createAccountBtn">Create Account</button>
+      <button class="btn outline" id="demoProfileBtn">Demo Profile (Skip Login)</button>
+    </div>
+  </div>
+
+  <script src="{% static 'hello/js/login.js' %}"></script>
+</body>
+</html>

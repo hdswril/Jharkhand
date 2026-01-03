@@ -1,0 +1,152 @@
+body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background:#6fe690;
+            color: #6b2b2b;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background:#CFFFDC;
+            color: #154c04;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 120px 20px 20px;
+        }
+        .buttons button {
+            width: 320px;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.6rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+        .buttons button::after {
+            content: '';
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+        .buttons button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            filter: brightness(1.1);
+        }
+        .buttons button:hover::after {
+            background: rgba(0,0,0,0.15);
+        }
+        .content {
+            max-width: 900px;
+            margin: auto;
+            background: rgb(180, 234, 172);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .place {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .place img {
+            max-width: 250px;
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            object-fit: cover;
+        }
+        .place img:hover {
+            transform: scale(1.05);
+        }
+        .place-text {
+            max-width: 600px;
+        }
+        .place-text h3 {
+            margin-top: 0;
+            color: #0288d1;
+        }
+        .place-text p {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0288d1;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .back-to-top:hover {
+            background: #0277bd;
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .buttons button {
+                width: 90%;
+                height: 140px;
+                font-size: 1.3rem;
+            }
+            .place {
+                flex-direction: column;
+                align-items: center;
+            }
+            .place img {
+                max-width: 90%;
+            }
+            .place-text {
+                max-width: 90%;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }

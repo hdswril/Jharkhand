@@ -1,0 +1,163 @@
+        :root {
+            --primary-color: #7b3fcc;
+            --secondary-color: #a47aff;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --header-bg: linear-gradient(90deg, rgba(76, 14, 209, 0.9), rgba(123,63,204,0.9));
+            --container-bg: rgba(255, 255, 255, 0.97);
+        }
+
+        body.dark-mode {
+            --primary-color: #d1c4e9;
+            --secondary-color: #9575cd;
+            --text-color: #f5f5f5;
+            --bg-color: #1e1e1e;
+            --header-bg: linear-gradient(90deg, rgba(63,94,251,0.9), rgba(58,123,213,0.9));
+            --container-bg: rgba(40, 40, 40, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://via.placeholder.com/1920x1080?text=Jharkhand+Art+Background') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #fff;
+            text-align: center;
+            padding: 25px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: background 0.3s ease;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1em;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 30px auto;
+            background-color: var(--container-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(124, 63, 204, 0.2);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .search-bar {
+            width: 100%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 60%;
+            min-width: 250px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(124, 63, 204, 0.4);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .art-item {
+            background: var(--bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .art-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(124, 63, 204, 0.3);
+        }
+
+        .art-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .art-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .art-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .art-item h3 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .art-item p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        .art-item strong {
+            color: var(--text-color);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .search-bar input {
+                width: 90%;
+            }
+        }

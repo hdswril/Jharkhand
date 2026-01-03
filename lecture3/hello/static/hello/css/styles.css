@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* stays behind everything */
+}
+
+/* Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45); /* semi-transparent dark layer */
+    z-index: 1; /* sits above video/background, below text */
+}
+
+/* Hero Content */
+.hero-section .text-center {
+    position: relative;
+    z-index: 2; /* text always visible on top */
+}
+
+/* Fallback background when video is not available */
+.hero-fallback {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
+                      url('https://upload.wikimedia.org/wikipedia/commons/a/ac/Hundru_Falls%2C_Ranchi.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cards and Other Sections */
+.destination-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cultural-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.adventure-card {
+    background: linear-gradient(145deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.gallery-item {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.festival-card {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+}
+
+.tribal-art {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}

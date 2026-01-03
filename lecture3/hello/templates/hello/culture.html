@@ -1,0 +1,344 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism - The Land of Forests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'hello/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/css/culture.css' %}">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/822c66ac-2f0a-4ca1-a990-2b48e2477c89.png" alt="Jharkhand Tourism Official Logo featuring tribal art patterns and state emblem" class="h-12 w-12 mr-3">
+                    <span class="text-2xl font-bold text-green-800">Jharkhand Tourism</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="{% url 'home' %}" class="text-green-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="{% url 'history' %}" class="text-green-800 hover:text-green-600 font-medium">History</a>
+                    <a href="{% url 'culture' %}" class="text-green-800 hover:text-green-600 font-medium">Culture</a>
+                    <a href="{% url 'adventure' %}" class="text-green-800 hover:text-green-600 font-medium">Adventure</a>
+                    <a href="{% url 'festivals' %}" class="text-green-800 hover:text-green-600 font-medium">Festivals</a>
+                    <a href="{% url 'localCuisine' %}" class="text-green-800 hover:text-green-600 font-medium">Local Cuisine</a>
+                    <a href="{% url 'map' %}" class="text-green-800 hover:text-green-600 font-medium">Map</a>
+                    <a href="{% url 'contact' %}" class="text-green-800 hover:text-green-600 font-medium">Contact</a>
+                    <a href="{% url 'login' %}" class="text-green-800 hover:text-green-600 font-medium">Login</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-green-800">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu ................. i should do it same as the actual nav bar-->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4">
+            <a href="#home" class="block py-2 text-green-800">Home</a>
+            <a href="#destinations" class="block py-2 text-green-800">Destinations</a>
+            <a href="#culture" class="block py-2 text-green-800">Culture</a>
+            <a href="#adventure" class="block py-2 text-green-800">Adventure</a>
+            <a href="#festivals" class="block py-2 text-green-800">Festivals</a>
+            <a href="#contact" class="block py-2 text-green-800">Contact</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 text-center">
+        <h1>Cultural Arts and Crafts of Jharkhand</h1>
+        <p>Explore the rich heritage, traditions, and artistry of Jharkhand</p>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for art...">
+        </div>
+
+        <div class="grid" id="artList">
+            <!-- Example Art Item -->
+            <div class="art-item">
+                <img src="{% static 'hello/img/sohrai.jpg'%}" alt="Sohrai Painting">
+                <div class="art-content">
+                    <h3>Sohrai Paintings</h3>
+                    <p><strong>Description:</strong> Sohrai is a harvest festival celebrated by tribal communities. The paintings are made using natural pigments on mud walls, depicting animals, trees, and rural life symbolizing prosperity.</p>
+                    <p><strong>Origin:</strong> Hazaribagh district and other tribal regions of Jharkhand.</p>
+                    <p><strong>Estimated Price:</strong> ₹600–₹3,000 depending on size and intricacy.</p>
+                </div>
+            </div>
+
+            <!-- Add more art items similarly -->
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/khovar.jpg'%}" alt="Khovar Painting">
+                <div class="art-content">
+                    <h3>Khovar Paintings</h3>
+                    <p><strong>Description:</strong> Khovar paintings are created during weddings with geometric patterns and motifs like peacocks and flowers, symbolizing fertility and happiness.</p>
+                    <p><strong>Origin:</strong> Hazaribagh and Palamu districts.</p>
+                    <p><strong>Estimated Price:</strong> ₹1,000–₹5,000 depending on complexity.</p>
+                </div>
+            </div>
+
+            <!-- Repeat for other items... just copy and paste this one code  -->
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/paitkar.jpg'%}" alt="Paitkar Painting">
+                <div class="art-content">
+                    <h3>Paitkar Paintings</h3>
+                    <p><strong>Description:</strong> Scroll paintings narrating mythological or historical stories through vivid illustrations, often accompanied by songs.</p>
+                    <p><strong>Origin:</strong> Amadubi village of Jharkhand.</p>
+                    <p><strong>Estimated Price:</strong> ₹700–₹2,500 depending on length and detail.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/jadopatia.jpg'%}" alt="Jadopatia Painting">
+                <div class="art-content">
+                    <h3>Jadopatia Paintings</h3>
+                    <p><strong>Description:</strong> Optical illusion art where designs change appearance from different angles through intricate patterns and colors.</p>
+                    <p><strong>Origin:</strong> Dumka district.</p>
+                    <p><strong>Estimated Price:</strong> ₹1,500–₹4,000 depending on design complexity.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/dhokra.jpg'%}" alt="Dhokra Craft">
+                <div class="art-content">
+                    <h3>Dhokra Craft</h3>
+                    <p><strong>Description:</strong> Ancient metal casting technique using lost-wax method to create brass figurines, jewelry, and utensils.</p>
+                    <p><strong>Origin:</strong> Khunti and Sikaripara regions.</p>
+                    <p><strong>Estimated Price:</strong> ₹500–₹5,000 depending on size and intricacy.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/bamboo.jpg'%}" alt="Bamboo and Cane Crafts">
+                <div class="art-content">
+                    <h3>Bamboo and Cane Crafts</h3>
+                    <p><strong>Description:</strong> Woven baskets, mats, and utility items made from bamboo and cane, lightweight and eco-friendly.</p>
+                    <p><strong>Origin:</strong> Ranchi and Khunti districts.</p>
+                    <p><strong>Estimated Price:</strong> ₹100–₹1,500 depending on item and craftsmanship.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/tribal.jpg'%}" alt="Tribal Jewelry">
+                <div class="art-content">
+                    <h3>Tribal Jewelry</h3>
+                    <p><strong>Description:</strong> Bold designs using beads, metals, and stones, often representing cultural identity and status.</p>
+                    <p><strong>Origin:</strong> Ranchi and Khunti regions.</p>
+                    <p><strong>Estimated Price:</strong> ₹200–₹2,000 depending on material and design complexity.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/chau masks.jpg'%}" alt="Chhau Mask">
+                <div class="art-content">
+                    <h3>Chhau Masks</h3>
+                    <p><strong>Description:</strong> Papier-mâché masks painted vividly for Chhau dance, representing deities and mythological characters.</p>
+                    <p><strong>Origin:</strong> Seraikela and Kharsawan regions.</p>
+                    <p><strong>Estimated Price:</strong> ₹1,000–₹3,000 depending on size and detailing.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/wooden handicraft.jpg'%}" alt="Wooden Handicrafts">
+                <div class="art-content">
+                    <h3>Wooden Handicrafts</h3>
+                    <p><strong>Description:</strong> Carved wooden toys, utensils, and decorative pieces with traditional motifs sourced from local forests.</p>
+                    <p><strong>Origin:</strong> Ranchi and Chaibasa districts.</p>
+                    <p><strong>Estimated Price:</strong> ₹150–₹2,000 depending on size and craftsmanship.</p>
+                </div>
+            </div>
+
+            <div class="art-item">
+                <img src="{% static 'hello/img/terracotta.jpg'%}" alt="Terracotta Art">
+                <div class="art-content">
+                    <h3>Terracotta Art</h3>
+                    <p><strong>Description:</strong> Clay molded items like masks, pots, and figurines fired in kilns and painted with natural dyes.</p>
+                    <p><strong>Origin:</strong> Dumka and Deoghar districts.</p>
+                    <p><strong>Estimated Price:</strong> ₹200–₹3,000 depending on item and design.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const artList = document.getElementById('artList');
+        const artItems = artList.getElementsByClassName('art-item');
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Search functionality works yaaaaaaaaaa!!!!!!!!!!!!!
+        searchInput.addEventListener('keyup', function() {
+            const filter = searchInput.value.toLowerCase();
+            Array.from(artItems).forEach(item => {
+                const title = item.getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.indexOf(filter) > -1) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+
+    <!-- Gallery will be added with the data base tooo -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-green-800 mb-4">Photo Gallery</h2>
+                <p class="text-gray-600">Glimpses of Jharkhand's beauty</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/25bcb761-65f6-4a72-8f4f-ba6ee86609c2.png" alt="Sunrise over Dalma Wildlife Sanctuary with misty hills and forest canopy" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3097dd57-00d8-4a00-85f6-db2608de476a.png" alt="Tribal dance performance with traditional costumes and musical instruments" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60e29850-8f12-49c1-981c-30a41490f47a.png" alt="Jonha Falls surrounded by rocky cliffs and lush vegetation" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d0dec34d-8019-47da-a4fb-018c379f0a6f.png" alt="Traditional tribal village with mud houses and courtyard activities" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f34a5ebb-368a-4ed9-aec1-02e1749dc183.png" alt="Evening aarti ceremony at Baidyanath Temple with lamps and devotees" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2187f497-92e8-457f-8948-e3f2b3c89ff6.png" alt="Handicraft market showing Dokra metal artifacts and tribal jewelry" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c1d8c875-ddf2-4cda-8128-c6de98428e5b.png" alt="Elephant safari in Betla National Park through dense forest trails" class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b8a1cb0a-36fb-4a25-b7cf-1efe1837826c.png" alt="Traditional tribal meal served on leaf plates with local cuisine" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking -->
+    <section id="contact" class="py-20 bg-green-800 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Plan Your Visit</h2>
+                <p class="text-green-200">Get in touch for travel information and bookings</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-4 text-green-300"></i>
+                            <span>Jharkhand Tourism Development Corporation, Ranchi</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-green-300"></i>
+                            <span>+91-651-2446-641</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-4 text-green-300"></i>
+                            <span>info@jharkhandtourism.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe mr-4 text-green-300"></i>
+                            <span>www.jharkhandtourism.gov.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Quick Inquiry</h3>
+                    <form class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <input type="tel" name="phone" placeholder="Your Phone" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required>
+                        <textarea name="message" placeholder="Your Message" rows="4" class="w-full px-4 py-3 bg-green-700 border border-green-600 rounded focus:outline-none focus:border-green-400 placeholder-green-200" required></textarea>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded font-semibold transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer we will add this as a bash folder -->
+    <footer class="bg-green-900 text-green-200 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Jharkhand Tourism</h4>
+                    <p>Discover the untouched beauty and rich cultural heritage of India's mineral heartland.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#destinations" class="hover:text-white transition duration-300">Destinations</a></li>
+                        <li><a href="#culture" class="hover:text-white transition duration-300">Culture</a></li>
+                        <li><a href="#adventure" class="hover:text-white transition duration-300">Adventure</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300">Travel Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Maps</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Weather</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Transport</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-white">Newsletter</h4>
+                    <p class="mb-4">Subscribe for updates and offers</p>
+                    <form class="flex" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" name="newsletter_email" placeholder="Your email" class="px-4 py-2 bg-green-800 border border-green-700 rounded-l focus:outline-none focus:border-green-400 placeholder-green-300 flex-1" required>
+                        <button type="submit" class="bg-green-600 px-4 py-2 rounded-r hover:bg-green-500 transition duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-800 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Jharkhand Tourism Development Corporation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top bg-green-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-green-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Load your JS -->
+    <script src="{% static 'hello/js/main.js' %}"></script>
+</body>
+</html>

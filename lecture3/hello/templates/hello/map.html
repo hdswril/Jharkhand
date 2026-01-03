@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism - The Land of Forests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'hello/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/css/culture.css' %}">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="{% static 'hello/css/map.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/822c66ac-2f0a-4ca1-a990-2b48e2477c89.png" alt="Jharkhand Tourism Official Logo featuring tribal art patterns and state emblem" class="h-12 w-12 mr-3">
+                    <span class="text-2xl font-bold text-green-800">Jharkhand Tourism</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="{% url 'home' %}" class="text-green-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="{% url 'history' %}" class="text-green-800 hover:text-green-600 font-medium">History</a>
+                    <a href="{% url 'culture' %}" class="text-green-800 hover:text-green-600 font-medium">Culture</a>
+                    <a href="{% url 'adventure' %}" class="text-green-800 hover:text-green-600 font-medium">Adventure</a>
+                    <a href="{% url 'festivals' %}" class="text-green-800 hover:text-green-600 font-medium">Festivals</a>
+                    <a href="{% url 'localCuisine' %}" class="text-green-800 hover:text-green-600 font-medium">Local Cuisine</a>
+                    <a href="{% url 'map' %}" class="text-green-800 hover:text-green-600 font-medium">Map</a>
+                    <a href="{% url 'contact' %}" class="text-green-800 hover:text-green-600 font-medium">Contact</a>
+                    <a href="{% url 'login' %}" class="text-green-800 hover:text-green-600 font-medium">Login</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-green-800">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu ................. i should do it same as the actual nav bar-->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4">
+            <a href="#home" class="block py-2 text-green-800">Home</a>
+            <a href="#destinations" class="block py-2 text-green-800">Destinations</a>
+            <a href="#culture" class="block py-2 text-green-800">Culture</a>
+            <a href="#adventure" class="block py-2 text-green-800">Adventure</a>
+            <a href="#festivals" class="block py-2 text-green-800">Festivals</a>
+            <a href="#contact" class="block py-2 text-green-800">Contact</a>
+        </div>
+    </nav>
+    <header class="pt-32 text-center">
+        <h1>Tourist Map of Jharkhand</h1>
+        <p>Where Nature's Splendor Meets Tribal Heritage</p>
+    </header>
+
+    <h2 class="text-center text-green-600">Choose your Destination</h2>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Refined bounds for Jharkhand
+        var jharkhandBounds = [
+            [22.0, 83.3], // Southwest corner
+            [25.0, 87.3]  // Northeast corner
+        ];
+
+        // Initialize the map with these refined bounds
+        var map = L.map('map', {
+            maxBounds: jharkhandBounds,
+            maxBoundsViscosity: 1.0
+        }).fitBounds(jharkhandBounds);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Tourist spots data
+        var touristSpots = [
+            {
+                name: "Netarhat",
+                coords: [22.8165, 84.1903],
+                img: "{% static 'hello/img/netarhat.jpg' %}",
+                desc: "Netarhat is a hill station known as the 'Queen of Chotanagpur'. Famous for its sunrise and sunset views."
+            },
+            {
+                name: "Baba Baidyanath Dham",
+                coords: [24.4855, 86.6983],
+                img: "{% static 'hello/img/deoghar.jpg' %}",
+                desc: "A renowned Jyotirlinga temple dedicated to Lord Shiva, located in Deoghar."
+            },
+            {
+                name: "Hundru Falls",
+                coords: [23.450839, 85.666799],
+                img: "{% static 'hello/img/hundru.jpg' %}",
+                desc: "A stunning waterfall on the Subarnarekha River near Ranchi."
+            },
+            {
+                name: "IIT(ISM) Dhanbad",
+                coords: [23.814043,86.441220],
+                img: "{% static 'hello/img/ISM.jpg' %}",
+                desc: "The IIT Dhanbad,"
+            },
+            {
+                name: "Parasnath Hill",
+                coords: [23.963566,86.128779],
+                img: "{% static 'hello/img/parasnath.jpg' %}",
+                desc: "Parasnath Hill,"
+            },
+            {
+                name: "Betla National Park",
+                coords: [23.1667, 84.0167],
+                img: "{% static 'hello/img/betla-national-park.jpg' %}",
+                desc: "A famous national park and wildlife sanctuary known for its flora and fauna."
+            }
+        ];
+
+        // Add markers to the map
+        touristSpots.forEach(function(spot) {
+            var marker = L.marker(spot.coords).addTo(map);
+            marker.bindPopup(`
+                <div class="popup-content">
+                    <h3>${spot.name}</h3>
+                    <img src="${spot.img}" alt="${spot.name}" />
+                    <p>${spot.desc}</p>
+                </div>
+            `);
+        });
+    </script>
+
+</body>
+</html>

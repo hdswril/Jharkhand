@@ -1,0 +1,24 @@
+ody {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #map {
+            height: 600px;
+            width: 70%;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        /* Styling for popup content */
+        .leaflet-popup-content {
+            max-width: 150px !important; /* Limit popup width */
+            width: 100px !important;
+            overflow-wrap: break-word;
+        }
+        .popup-content img {
+            width: 500px;
+            height: 100px;
+            max-width: 100px;  /* Small image size */
+            margin-bottom: 5px;
+            border-radius: 8px;
+        }

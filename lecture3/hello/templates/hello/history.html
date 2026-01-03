@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="h-screen bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white font-sans">
+
+  <!-- ✅ Navigation Bar -->
+  <nav class="bg-white shadow-lg fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/822c66ac-2f0a-4ca1-a990-2b48e2477c89.png" alt="Jharkhand Tourism Official Logo" class="h-12 w-12 mr-3">
+          <span class="text-2xl font-bold text-green-800">Jharkhand Tourism</span>
+        </div>
+        <div class="hidden md:flex space-x-10">
+          <a href="{% url 'home' %}" class="text-green-800 hover:text-green-600 font-medium">Home</a>
+          <a href="{% url 'history' %}" class="text-green-800 hover:text-green-600 font-medium">History</a>
+          <a href="{% url 'culture' %}" class="text-green-800 hover:text-green-600 font-medium">Culture</a>
+          <a href="{% url 'adventure' %}" class="text-green-800 hover:text-green-600 font-medium">Adventure</a>
+          <a href="{% url 'festivals' %}" class="text-green-800 hover:text-green-600 font-medium">Festivals</a>
+          <a href="{% url 'localCuisine' %}" class="text-green-800 hover:text-green-600 font-medium">Local Cuisine</a>
+          <a href="{% url 'map' %}" class="text-green-800 hover:text-green-600 font-medium">Map</a>
+          <a href="{% url 'contact' %}" class="text-green-800 hover:text-green-600 font-medium">Contact</a>
+          <a href="{% url 'login' %}" class="text-green-800 hover:text-green-600 font-medium">Login</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-green-800">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4">
+      <a href="{% url 'home' %}" class="block py-2 text-green-800">Home</a>
+      <a href="{% url 'history' %}" class="block py-2 text-green-800">History</a>
+      <a href="{% url 'culture' %}" class="block py-2 text-green-800">Culture</a>
+      <a href="{% url 'adventure' %}" class="block py-2 text-green-800">Adventure</a>
+      <a href="{% url 'festivals' %}" class="block py-2 text-green-800">Festivals</a>
+      <a href="{% url 'localCuisine' %}" class="block py-2 text-green-800">Local Cuisine</a>
+      <a href="{% url 'contact' %}" class="block py-2 text-green-800">Contact</a>
+      <a href="{% url 'map' %}" class="block py-2 text-green-800">Map</a>
+      <a href="{% url 'login' %}" class="block py-2 text-green-800">Login</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Coming Soon Section -->
+  <div class="h-screen flex items-center justify-center text-center space-y-6 pt-28">
+    <div>
+      <!-- Animated Title -->
+      <h1 class="text-5xl font-bold drop-shadow-lg">
+        🚀 <span id="typed"></span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xl opacity-90 mt-4">We’re working hard to launch something amazing!</p>
+
+      <!-- Countdown -->
+      <div id="countdown" class="flex justify-center space-x-6 text-2xl font-semibold mt-6">
+        <div><span id="days">00</span><div class="text-sm">Days</div></div>
+        <div><span id="hours">00</span><div class="text-sm">Hours</div></div>
+        <div><span id="minutes">00</span><div class="text-sm">Minutes</div></div>
+        <div><span id="seconds">00</span><div class="text-sm">Seconds</div></div>
+      </div>
+
+      <!-- Email Subscribe -->
+      <div class="mt-8">
+        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-lg text-black focus:outline-none">
+        <button class="bg-white text-blue-600 px-4 py-2 rounded-r-lg font-semibold hover:bg-gray-200">Notify Me</button>
+      </div>
+
+      <!-- Footer -->
+      <p class="text-sm opacity-80 mt-10">© 2025 Jharkhand Tourism. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- ✅ Scripts -->
+  <script>
+    // Typed.js animation
+    new Typed("#typed", {
+      strings: ["Coming Soon", "Launching Soon", "Stay Tuned!"],
+      typeSpeed: 70,
+      backSpeed: 40,
+      loop: true
+    });
+
+    // Countdown Timer
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 10); // 10 days from now
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Mobile menu toggle
+    document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
